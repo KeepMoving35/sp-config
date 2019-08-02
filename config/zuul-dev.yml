@@ -1,7 +1,11 @@
 spring:
   application:
     name: zuul
-    
+  rabbitmq:
+    host: 192.168.21.132
+    port: 5672
+    username: admin
+    password: admin
 server:
   port: 3001
   
@@ -11,12 +15,12 @@ eureka:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
 
 zuul:
-  retryable: true #å¼€å¯é‡è¯•
+  retryable: true #¿ªÆôÖØÊÔ
   routes:
     item-service: /item-service/**
     user-service: /user-service/**
     order-service: /order-service/**
-  #å¯ä»¥è®¾ç½® zuul ä¸è¿‡æ»¤è¿™äº›åè®®å¤´zuul ä¼šè¿‡æ»¤æ•æ„Ÿ http åè®®å¤´ï¼Œé»˜è®¤è¿‡æ»¤ä»¥ä¸‹åè®®å¤´ï¼š
+  #¿ÉÒÔÉèÖÃ zuul ²»¹ıÂËÕâĞ©Ğ­ÒéÍ·zuul »á¹ıÂËÃô¸Ğ http Ğ­ÒéÍ·£¬Ä¬ÈÏ¹ıÂËÒÔÏÂĞ­ÒéÍ·£º
   sensitive-headers: Cookie Set-Cookie Authorization
 
 ribbon:
